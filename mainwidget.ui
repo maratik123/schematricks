@@ -2,38 +2,46 @@
 <ui version="4.0">
  <class>MainWidget</class>
  <widget class="QWidget" name="MainWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>538</width>
+    <height>465</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>MainWidget</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_4" stretch="10,1">
+  <layout class="QVBoxLayout" name="mainWidgetLayout" stretch="10,1">
    <item>
-    <widget class="QGraphicsView" name="graphicsView"/>
+    <widget class="QGraphicsView" name="schemaView"/>
    </item>
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
-     <widget class="QWidget" name="widget">
+     <widget class="QWidget" name="specificationTabWidget">
       <attribute name="title">
        <string>Specifications</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="specificationTabLayout">
        <item>
         <widget class="QGraphicsView" name="specificationView"/>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="widget_2">
+     <widget class="QWidget" name="verificationTabWidget">
       <attribute name="title">
        <string>Verification</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="verificationTabLayout">
        <item>
-        <widget class="QGraphicsView" name="graphicsView_3"/>
+        <widget class="QGraphicsView" name="verificationView"/>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
+        <layout class="QHBoxLayout" name="verificationButtonsLayout">
          <item>
           <widget class="QPushButton" name="runVerificationTestButton">
            <property name="text">
@@ -42,7 +50,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="verificationTestStatus">
+          <widget class="QLabel" name="verificationTestStatusLabel">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -58,32 +66,32 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_3">
+     <widget class="QWidget" name="designSnippetsTabView">
       <attribute name="title">
        <string>Design Snippets</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
+      <layout class="QVBoxLayout" name="designSnippetsLayout">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <layout class="QHBoxLayout" name="designSnippetsViewLayout">
          <item>
-          <widget class="QListView" name="listView"/>
+          <widget class="QListView" name="snippetsListView"/>
          </item>
          <item>
-          <widget class="QGraphicsView" name="graphicsView_4"/>
+          <widget class="QGraphicsView" name="snippetView"/>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <layout class="QHBoxLayout" name="deisgnSnippetsButtonLayout">
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="deleteSelectedSnippetButton">
            <property name="text">
             <string>Delete selected snippet</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="snippetStatusLabel">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -99,12 +107,12 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_4">
+     <widget class="QWidget" name="helpTabWidget">
       <attribute name="title">
        <string>Help</string>
       </attribute>
      </widget>
-     <widget class="QWidget" name="tab_5">
+     <widget class="QWidget" name="menuTabWidget">
       <attribute name="title">
        <string>Menu</string>
       </attribute>
