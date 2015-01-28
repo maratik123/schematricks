@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwidget.cpp
+        mainwidget.cpp \
+    abstractschemaitem.cpp
 
-HEADERS  += mainwidget.h
+HEADERS  += mainwidget.h \
+    abstractschemaitem.h
 
 FORMS    += mainwidget.ui
