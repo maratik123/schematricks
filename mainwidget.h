@@ -13,24 +13,25 @@ class MainWidget;
 class MainWidget : public QWidget
 {
     Q_OBJECT
-    Q_ENUMS(DrawType)
-    Q_PROPERTY(DrawType drawType READ drawType WRITE setDrawType NOTIFY drawTypeChanged)
+    Q_ENUMS(MainWidget::DrawType)
+    Q_PROPERTY(MainWidget::DrawType drawType READ drawType WRITE setDrawType NOTIFY drawTypeChanged)
+    Q_PROPERTY(bool showMetal READ isShowMetal WRITE setShowMetal NOTIFY showMetalChanged)
 
 public:
     enum class DrawType { SiliconN, SiliconP, Metal, Select, DeleteSilicon, DeleteMetal, AddVia };
 
     explicit MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
-    DrawType drawType() const { return _drawType; }
+    MainWidget::DrawType drawType() const { return _drawType; }
     bool isShowMetal() const { return _isShowMetal; }
 
 signals:
     void shiftPressed(bool);
-    void drawTypeChanged(DrawType);
+    void drawTypeChanged(MainWidget::DrawType);
     void showMetalChanged(bool);
 
 public slots:
-    void setDrawType(DrawType drawType);
+    void setDrawType(MainWidget::DrawType drawType);
     void setShowMetal(bool showMetal);
 
 private slots:
