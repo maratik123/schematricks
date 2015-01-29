@@ -5,8 +5,6 @@
 
 class AbstractSchemaItem : public QGraphicsItem
 {
-    Q_OBJECT
-
 public:
     AbstractSchemaItem() = default;
 
