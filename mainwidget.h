@@ -12,11 +12,21 @@ class MainWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit MainWidget(QWidget *parent = 0);
+    explicit MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
 
+public slots:
+    void modifyControls(bool modify);
+
+protected:
+    bool eventFilter(QObject *, QEvent *);
+
 private:
+    bool keyEvent(bool type, QEvent *event);
     Ui::MainWidget *ui;
+
+signals:
+    void shiftPressed(bool modify);
 };
 
 #endif // MAINWIDGET_H

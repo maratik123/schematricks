@@ -6,16 +6,97 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>538</width>
-    <height>465</height>
+    <width>641</width>
+    <height>447</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWidget</string>
   </property>
-  <layout class="QVBoxLayout" name="mainWidgetLayout" stretch="10,1">
+  <layout class="QVBoxLayout" name="mainWidgetVerticalLayout" stretch="10,1">
    <item>
-    <widget class="QGraphicsView" name="schemaView"/>
+    <layout class="QHBoxLayout" name="schemaControlsHorizontalLayout">
+     <item>
+      <widget class="QGraphicsView" name="schemaView"/>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="controlsVerticalLayout">
+       <item>
+        <widget class="QPushButton" name="siliconButton">
+         <property name="text">
+          <string>Silicon (N)</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="metalButton">
+         <property name="text">
+          <string>Metal</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="showMetalCheckBox">
+         <property name="text">
+          <string>Show metal</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="addViaButton">
+         <property name="text">
+          <string>Add via</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="selectButton">
+         <property name="text">
+          <string>Select</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="deleteButton">
+         <property name="text">
+          <string>Delete silicon</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="controlsVerticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QTabWidget" name="tabWidget">
@@ -122,6 +203,127 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>schemaView</tabstop>
+  <tabstop>siliconButton</tabstop>
+  <tabstop>metalButton</tabstop>
+  <tabstop>showMetalCheckBox</tabstop>
+  <tabstop>addViaButton</tabstop>
+  <tabstop>selectButton</tabstop>
+  <tabstop>deleteButton</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>specificationView</tabstop>
+  <tabstop>verificationView</tabstop>
+  <tabstop>runVerificationTestButton</tabstop>
+  <tabstop>snippetsListView</tabstop>
+  <tabstop>snippetView</tabstop>
+  <tabstop>deleteSelectedSnippetButton</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>siliconButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWidget</receiver>
+   <slot>siliconSelect(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>618</x>
+     <y>21</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>635</x>
+     <y>23</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>metalButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWidget</receiver>
+   <slot>metalSelect(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>617</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>637</x>
+     <y>59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showMetalCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWidget</receiver>
+   <slot>showMetal(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>615</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>640</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addViaButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWidget</receiver>
+   <slot>addViaSelect(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>611</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>118</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>selectButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWidget</receiver>
+   <slot>selectSelect(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>607</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>638</x>
+     <y>148</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deleteButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWidget</receiver>
+   <slot>deleteSelect(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>614</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>634</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>siliconSelect(bool)</slot>
+  <slot>metalSelect(bool)</slot>
+  <slot>showMetal(bool)</slot>
+  <slot>selectSelect(bool)</slot>
+  <slot>deleteSelect(bool)</slot>
+  <slot>addViaSelect(bool)</slot>
+ </slots>
 </ui>
