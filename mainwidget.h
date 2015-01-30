@@ -26,7 +26,6 @@ public:
     bool isShowMetal() const { return _isShowMetal; }
 
 signals:
-    void shiftPressed(bool);
     void drawTypeChanged(MainWidget::DrawType);
     void showMetalChanged(bool);
 
@@ -35,22 +34,19 @@ public slots:
     void setShowMetal(bool showMetal);
 
 private slots:
-    void modifyControls(bool modify) { isControlModified = modify; }
     void selectSelect(bool toggle);
     void addViaSelect(bool toggle);
     void metalSelect(bool toggle);
-    void siliconSelect(bool toggle);
-    void deleteSelect(bool toggle);
-
-protected:
-    bool eventFilter(QObject *object, QEvent *event);
+    void siliconNSelect(bool toggle);
+    void siliconPSelect(bool toggle);
+    void deleteSiliconSelect(bool toggle);
+    void deleteMetalSelect(bool toggle);
 
 private:
     bool keyEvent(bool type, QEvent *event);
 
     Ui::MainWidget *ui;
     DrawType _drawType;
-    bool isControlModified;
     bool _isShowMetal;
     QGraphicsScene *scene;
     QGraphicsSimpleTextItem *drawTypeItem;

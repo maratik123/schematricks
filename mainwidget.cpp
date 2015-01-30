@@ -9,19 +9,12 @@ MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWidget),
     _drawType(DrawType::SiliconN),
-    isControlModified(false),
     _isShowMetal(true),
     scene(new QGraphicsScene(this)),
     drawTypeItem(new QGraphicsSimpleTextItem()),
     showMetalItem(new QGraphicsSimpleTextItem())
 {
     ui->setupUi(this);
-
-    connect(this, SIGNAL(shiftPressed(bool)), SLOT(modifyControls(bool)));
-    
-    for(QObject *child : children()) {
-        child->installEventFilter(this);
-    }
 
     ui->schemaView->setScene(scene);
 
@@ -58,41 +51,28 @@ void MainWidget::metalSelect(bool toggle)
         setDrawType(DrawType::Metal);
 }
 
-void MainWidget::siliconSelect(bool toggle)
+void MainWidget::siliconNSelect(bool toggle)
 {
     if(toggle)
-        setDrawType(isControlModified ? DrawType::SiliconP : DrawType::SiliconN);
+        setDrawType(DrawType::SiliconN);
 }
 
-void MainWidget::deleteSelect(bool toggle)
+void MainWidget::siliconPSelect(bool toggle)
 {
     if(toggle)
-        setDrawType(isControlModified ? DrawType::DeleteMetal : DrawType::DeleteSilicon);
+        setDrawType(DrawType::SiliconP);
 }
 
-bool MainWidget::keyEvent(bool type, QEvent *event) {
-    QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-    if(keyEvent->key() == Qt::Key_Shift) {
-        emit shiftPressed(type);
-        return true;
-    }
-    return false;
+void MainWidget::deleteSiliconSelect(bool toggle)
+{
+    if(toggle)
+        setDrawType(DrawType::DeleteSilicon);
 }
 
-bool MainWidget::eventFilter(QObject *object, QEvent *event) {
-    switch(event->type()) {
-    case QEvent::KeyPress:
-        if(keyEvent(true, event))
-            return true;
-        break;
-    case QEvent::KeyRelease:
-        if(keyEvent(false, event))
-            return true;
-        break;
-    default:
-        break;
-    }
-    return QWidget::eventFilter(object, event);
+void MainWidget::deleteMetalSelect(bool toggle)
+{
+    if(toggle)
+        setDrawType(DrawType::DeleteMetal);
 }
 
 MainWidget::~MainWidget()
@@ -129,8 +109,6 @@ void MainWidget::setDrawType(MainWidget::DrawType drawType)
         drawTypeItem->setText(tr("SiliconP"));
         break;
     default:
-        drawTypeItem->setText(tr("Unkbown draw type"));
+        drawTypeItem->setText(tr("Unknown draw type"));
     }
-
-
 }

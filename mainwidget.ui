@@ -22,7 +22,7 @@
      <item>
       <layout class="QVBoxLayout" name="controlsVerticalLayout">
        <item>
-        <widget class="QPushButton" name="siliconButton">
+        <widget class="QPushButton" name="siliconNButton">
          <property name="text">
           <string>Silicon (N)</string>
          </property>
@@ -30,6 +30,19 @@
           <bool>true</bool>
          </property>
          <property name="checked">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">controlButtonsGroup</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="siliconPButton">
+         <property name="text">
+          <string>Silicon (P)</string>
+         </property>
+         <property name="checkable">
           <bool>true</bool>
          </property>
          <attribute name="buttonGroup">
@@ -87,9 +100,22 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="deleteButton">
+        <widget class="QPushButton" name="deleteSiliconButton">
          <property name="text">
           <string>Delete silicon</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">controlButtonsGroup</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="deleteMetalButton">
+         <property name="text">
+          <string>Delete metal</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
@@ -223,12 +249,14 @@
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
   <tabstop>schemaView</tabstop>
-  <tabstop>siliconButton</tabstop>
+  <tabstop>siliconNButton</tabstop>
+  <tabstop>siliconPButton</tabstop>
   <tabstop>metalButton</tabstop>
   <tabstop>showMetalCheckBox</tabstop>
   <tabstop>addViaButton</tabstop>
   <tabstop>selectButton</tabstop>
-  <tabstop>deleteButton</tabstop>
+  <tabstop>deleteSiliconButton</tabstop>
+  <tabstop>deleteMetalButton</tabstop>
   <tabstop>tabWidget</tabstop>
   <tabstop>specificationView</tabstop>
   <tabstop>verificationView</tabstop>
@@ -240,10 +268,10 @@
  <resources/>
  <connections>
   <connection>
-   <sender>siliconButton</sender>
+   <sender>siliconNButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWidget</receiver>
-   <slot>siliconSelect(bool)</slot>
+   <slot>siliconNSelect(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>618</x>
@@ -262,8 +290,8 @@
    <slot>metalSelect(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>617</x>
-     <y>51</y>
+     <x>634</x>
+     <y>79</y>
     </hint>
     <hint type="destinationlabel">
      <x>637</x>
@@ -278,8 +306,8 @@
    <slot>setShowMetal(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>615</x>
-     <y>77</y>
+     <x>634</x>
+     <y>104</y>
     </hint>
     <hint type="destinationlabel">
      <x>640</x>
@@ -294,8 +322,8 @@
    <slot>addViaSelect(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>611</x>
-     <y>107</y>
+     <x>634</x>
+     <y>130</y>
     </hint>
     <hint type="destinationlabel">
      <x>638</x>
@@ -310,8 +338,8 @@
    <slot>selectSelect(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>607</x>
-     <y>134</y>
+     <x>634</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
      <x>638</x>
@@ -320,14 +348,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>deleteButton</sender>
+   <sender>deleteSiliconButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWidget</receiver>
-   <slot>deleteSelect(bool)</slot>
+   <slot>deleteSiliconSelect(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>614</x>
-     <y>160</y>
+     <x>634</x>
+     <y>182</y>
     </hint>
     <hint type="destinationlabel">
      <x>634</x>
@@ -335,14 +363,48 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>siliconPButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWidget</receiver>
+   <slot>siliconPSelect(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>602</x>
+     <y>42</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>637</x>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>deleteMetalButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWidget</receiver>
+   <slot>deleteMetalSelect(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>593</x>
+     <y>199</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>593</x>
+     <y>296</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>siliconSelect(bool)</slot>
+  <slot>siliconNSelect(bool)</slot>
   <slot>metalSelect(bool)</slot>
   <slot>setShowMetal(bool)</slot>
   <slot>selectSelect(bool)</slot>
-  <slot>deleteSelect(bool)</slot>
+  <slot>deleteSiliconSelect(bool)</slot>
   <slot>addViaSelect(bool)</slot>
+  <slot>siliconPSelect(bool)</slot>
+  <slot>deleteMetalSelect(bool)</slot>
  </slots>
  <buttongroups>
   <buttongroup name="controlButtonsGroup"/>
