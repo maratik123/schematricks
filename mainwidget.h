@@ -13,6 +13,7 @@ class MainWidget;
 class MainWidget : public QWidget
 {
     Q_OBJECT
+    Q_DISABLE_COPY(MainWidget)
     Q_ENUMS(MainWidget::DrawType)
     Q_PROPERTY(MainWidget::DrawType drawType READ drawType WRITE setDrawType NOTIFY drawTypeChanged)
     Q_PROPERTY(bool showMetal READ isShowMetal WRITE setShowMetal NOTIFY showMetalChanged)
@@ -22,7 +23,7 @@ public:
 
     explicit MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
-    MainWidget::DrawType drawType() const { return _drawType; }
+    DrawType drawType() const { return _drawType; }
     bool isShowMetal() const { return _isShowMetal; }
 
 signals:
@@ -32,8 +33,6 @@ signals:
 public slots:
     void setDrawType(MainWidget::DrawType drawType);
     void setShowMetal(bool showMetal);
-
-private slots:
     void selectSelect(bool toggle);
     void addViaSelect(bool toggle);
     void metalSelect(bool toggle);
