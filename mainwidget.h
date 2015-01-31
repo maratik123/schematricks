@@ -5,6 +5,7 @@
 
 class QGraphicsScene;
 class QGraphicsSimpleTextItem;
+class QDebug;
 
 namespace Ui {
 class MainWidget;
@@ -19,7 +20,7 @@ class MainWidget : public QWidget
     Q_PROPERTY(bool showMetal READ isShowMetal WRITE setShowMetal NOTIFY showMetalChanged)
 
 public:
-    enum class DrawType { SiliconN, SiliconP, Metal, Select, DeleteSilicon, DeleteMetal, AddVia };
+    enum class DrawType { Nothing, SiliconN, SiliconP, Metal, Select, DeleteSilicon, DeleteMetal, AddVia };
 
     explicit MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
@@ -33,13 +34,13 @@ signals:
 public slots:
     void setDrawType(MainWidget::DrawType drawType);
     void setShowMetal(bool showMetal);
-    void selectSelect(bool toggle);
-    void addViaSelect(bool toggle);
-    void metalSelect(bool toggle);
-    void siliconNSelect(bool toggle);
-    void siliconPSelect(bool toggle);
-    void deleteSiliconSelect(bool toggle);
-    void deleteMetalSelect(bool toggle);
+    void selectSelect(bool toggle) { if(toggle) setDrawType(DrawType::Select); }
+    void addViaSelect(bool toggle) { if(toggle) setDrawType(DrawType::AddVia); }
+    void metalSelect(bool toggle) { if(toggle) setDrawType(DrawType::Metal); }
+    void siliconNSelect(bool toggle) { if(toggle) setDrawType(DrawType::SiliconN); }
+    void siliconPSelect(bool toggle) { if(toggle) setDrawType(DrawType::SiliconP); }
+    void deleteSiliconSelect(bool toggle) { if(toggle) setDrawType(DrawType::DeleteSilicon); }
+    void deleteMetalSelect(bool toggle) { if(toggle) setDrawType(DrawType::DeleteMetal); }
 
 private:
     bool keyEvent(bool type, QEvent *event);
@@ -51,5 +52,7 @@ private:
     QGraphicsSimpleTextItem *drawTypeItem;
     QGraphicsSimpleTextItem *showMetalItem;
 };
+
+QDebug operator<<(QDebug debug, MainWidget::DrawType drawType);
 
 #endif // MAINWIDGET_H

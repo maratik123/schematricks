@@ -4,12 +4,13 @@
 #include <QKeyEvent>
 #include <QGraphicsScene>
 #include <QGraphicsSimpleTextItem>
+#include <QDebug>
 
 MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWidget),
-    _drawType(DrawType::SiliconN),
-    _isShowMetal(true),
+    _drawType(DrawType::Nothing),
+    _isShowMetal(false),
     scene(new QGraphicsScene(this)),
     drawTypeItem(new QGraphicsSimpleTextItem()),
     showMetalItem(new QGraphicsSimpleTextItem())
@@ -22,6 +23,8 @@ MainWidget::MainWidget(QWidget *parent) :
     scene->addItem(showMetalItem);
     drawTypeItem->setPos(0, 0);
     showMetalItem->setPos(0, 20);
+    setDrawType(DrawType::SiliconN);
+    setShowMetal(true);
 }
 
 void MainWidget::setShowMetal(bool showMetal)
@@ -30,54 +33,43 @@ void MainWidget::setShowMetal(bool showMetal)
         return;
     _isShowMetal = showMetal;
     emit showMetalChanged(showMetal);
-    drawTypeItem->setText(showMetal ? tr("Show metal") : tr("Hide metal"));
-}
-
-void MainWidget::selectSelect(bool toggle)
-{
-    if(toggle)
-        setDrawType(DrawType::Select);
-}
-
-void MainWidget::addViaSelect(bool toggle)
-{
-    if(toggle)
-        setDrawType(DrawType::AddVia);
-}
-
-void MainWidget::metalSelect(bool toggle)
-{
-    if(toggle)
-        setDrawType(DrawType::Metal);
-}
-
-void MainWidget::siliconNSelect(bool toggle)
-{
-    if(toggle)
-        setDrawType(DrawType::SiliconN);
-}
-
-void MainWidget::siliconPSelect(bool toggle)
-{
-    if(toggle)
-        setDrawType(DrawType::SiliconP);
-}
-
-void MainWidget::deleteSiliconSelect(bool toggle)
-{
-    if(toggle)
-        setDrawType(DrawType::DeleteSilicon);
-}
-
-void MainWidget::deleteMetalSelect(bool toggle)
-{
-    if(toggle)
-        setDrawType(DrawType::DeleteMetal);
+    showMetalItem->setText(showMetal ? tr("Show metal") : tr("Hide metal"));
 }
 
 MainWidget::~MainWidget()
 {
     delete ui;
+}
+
+QDebug operator<<(QDebug debug, MainWidget::DrawType drawType) {
+    const char* strDrawType;
+    switch(drawType) {
+    case MainWidget::DrawType::AddVia:
+        strDrawType = "AddVia";
+        break;
+    case MainWidget::DrawType::DeleteMetal:
+        strDrawType = "DeleteMetal";
+        break;
+    case MainWidget::DrawType::DeleteSilicon:
+        strDrawType = "DeleteSilicon";
+        break;
+    case MainWidget::DrawType::Metal:
+        strDrawType = "Metal";
+        break;
+    case MainWidget::DrawType::Select:
+        strDrawType = "Select";
+        break;
+    case MainWidget::DrawType::SiliconN:
+        strDrawType = "SiliconN";
+        break;
+    case MainWidget::DrawType::SiliconP:
+        strDrawType = "SiliconP";
+        break;
+    default:
+        strDrawType = "Unknown draw type";
+        break;
+    }
+    return debug << QLatin1String(strDrawType);
 }
 
 void MainWidget::setDrawType(MainWidget::DrawType drawType)
@@ -86,29 +78,9 @@ void MainWidget::setDrawType(MainWidget::DrawType drawType)
         return;
     _drawType = drawType;
     emit drawTypeChanged(drawType);
-    switch(drawType) {
-    case DrawType::AddVia:
-        drawTypeItem->setText(tr("AddVia"));
-        break;
-    case DrawType::DeleteMetal:
-        drawTypeItem->setText(tr("DeleteMetal"));
-        break;
-    case DrawType::DeleteSilicon:
-        drawTypeItem->setText(tr("DeleteSilicon"));
-        break;
-    case DrawType::Metal:
-        drawTypeItem->setText(tr("Metal"));
-        break;
-    case DrawType::Select:
-        drawTypeItem->setText(tr("Select"));
-        break;
-    case DrawType::SiliconN:
-        drawTypeItem->setText(tr("SiliconN"));
-        break;
-    case DrawType::SiliconP:
-        drawTypeItem->setText(tr("SiliconP"));
-        break;
-    default:
-        drawTypeItem->setText(tr("Unknown draw type"));
+    QString drawTypeStr;
+    {
+        QDebug(&drawTypeStr) << drawType;
     }
+    drawTypeItem->setText(drawTypeStr);
 }
