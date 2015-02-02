@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-class QGraphicsScene;
+class GridScene;
 class QGraphicsSimpleTextItem;
 class QDebug;
 
@@ -24,8 +24,8 @@ public:
 
     explicit MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
-    DrawType drawType() const { return _drawType; }
-    bool isShowMetal() const { return _isShowMetal; }
+    DrawType drawType() const noexcept { return _drawType; }
+    bool isShowMetal() const noexcept { return _isShowMetal; }
 
 signals:
     void drawTypeChanged(MainWidget::DrawType);
@@ -48,7 +48,7 @@ private:
     Ui::MainWidget *ui;
     DrawType _drawType;
     bool _isShowMetal;
-    QGraphicsScene *scene;
+    GridScene *scene;
     QGraphicsSimpleTextItem *drawTypeItem;
     QGraphicsSimpleTextItem *showMetalItem;
 };

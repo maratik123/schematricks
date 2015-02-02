@@ -7,8 +7,7 @@ class AbstractSchemaItem : public QGraphicsItem
 {
     Q_DISABLE_COPY(AbstractSchemaItem)
 public:
-    AbstractSchemaItem() = default;
-
+    explicit AbstractSchemaItem(QGraphicsItem *parent = nullptr) : QGraphicsItem(parent) {}
 };
 
 #endif // ABSTRACTSCHEMAITEM_H

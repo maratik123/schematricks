@@ -2,7 +2,7 @@
 #include "utils.h"
 #include "ui_mainwidget.h"
 #include <QKeyEvent>
-#include <QGraphicsScene>
+#include <gridscene.h>
 #include <QGraphicsSimpleTextItem>
 #include <QDebug>
 
@@ -11,7 +11,7 @@ MainWidget::MainWidget(QWidget *parent) :
     ui(new Ui::MainWidget),
     _drawType(DrawType::Nothing),
     _isShowMetal(false),
-    scene(new QGraphicsScene(this)),
+    scene(new GridScene(this)),
     drawTypeItem(new QGraphicsSimpleTextItem()),
     showMetalItem(new QGraphicsSimpleTextItem())
 {

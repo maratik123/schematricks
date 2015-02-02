@@ -21,10 +21,12 @@ DEFINES  += QT_NO_CAST_FROM_ASCII QT_NO_CAST_TO_ASCII
 SOURCES  += main.cpp\
     mainwidget.cpp \
     utils.cpp \
-    abstractschemaitem.cpp
+    abstractschemaitem.cpp \
+    gridscene.cpp
 
 HEADERS  += mainwidget.h \
     utils.h \
-    abstractschemaitem.h
+    abstractschemaitem.h \
+    gridscene.h
 
 FORMS    += mainwidget.ui
