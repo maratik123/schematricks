@@ -1,19 +1,17 @@
 #include "gridscene.h"
 #include <QPainter>
+#include <cmath>
 
 void GridScene::drawBackground(QPainter *painter, const QRectF &rect)
 {
-    const int gridSize = 25;
-    int ileft = static_cast<int>(rect.left());
-    int itop = static_cast<int>(rect.top());
-    qreal left =  ileft - ileft % gridSize;
-    qreal top =  itop - itop % gridSize;
+    qreal left =  rect.left() - std::remainder(rect.left(), _gridSize);
+    qreal top =  rect.top() - std::remainder(rect.top(), _gridSize);
 
     QVarLengthArray<QLineF> lines;
 
-    for(qreal x = left; x < rect.right(); x += gridSize)
+    for(qreal x = left; x < rect.right(); x += _gridSize)
         lines.append(QLineF(x, rect.top(), x, rect.bottom()));
-    for(qreal y = top; y < rect.bottom(); y += gridSize)
+    for(qreal y = top; y < rect.bottom(); y += _gridSize)
         lines.append(QLineF(rect.left(), y, rect.right(), y));
 
     painter->drawLines(lines.constData(), lines.size());

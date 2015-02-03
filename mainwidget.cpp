@@ -11,7 +11,7 @@ MainWidget::MainWidget(QWidget *parent) :
     ui(new Ui::MainWidget),
     _drawType(DrawType::Nothing),
     _isShowMetal(false),
-    scene(new GridScene(this)),
+    scene(new GridScene(19.9, this)),
     drawTypeItem(new QGraphicsSimpleTextItem()),
     showMetalItem(new QGraphicsSimpleTextItem())
 {
