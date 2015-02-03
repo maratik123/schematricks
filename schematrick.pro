@@ -11,7 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): CONFIG         += c++11
 lessThan(QT_MAJOR_VERSION, 5):    QMAKE_CXXFLAGS += -std=c++0x
 
 QMAKE_CXXFLAGS += -fvisibility-inlines-hidden -fvisibility=hidden
-QMAKE_CXXFLAGS_DEBUG += -Og
+QMAKE_CXXFLAGS_DEBUG += -Og -ffast-math
+QMAKE_CXXFLAGS_RELEASE += -Ofast -fomit-frame-pointer
 
 TARGET   = schematrick
 TEMPLATE = app
