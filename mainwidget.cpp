@@ -2,16 +2,20 @@
 #include "utils.h"
 #include "ui_mainwidget.h"
 #include <QKeyEvent>
-#include <gridscene.h>
+#include "gridscene.h"
 #include <QGraphicsSimpleTextItem>
 #include <QDebug>
+
+namespace {
+    static const int gridSize = 20;
+}
 
 MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWidget),
     _drawType(DrawType::Nothing),
     _isShowMetal(false),
-    scene(new GridScene(19.9, this)),
+    scene(new GridScene(gridSize, this)),
     drawTypeItem(new QGraphicsSimpleTextItem()),
     showMetalItem(new QGraphicsSimpleTextItem())
 {
