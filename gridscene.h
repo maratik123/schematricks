@@ -9,6 +9,7 @@ class GridScene : public QGraphicsScene
     Q_DISABLE_COPY(GridScene)
 public:
     explicit GridScene(qreal gridSize, QObject *parent = nullptr) : QGraphicsScene(parent), _gridSize(gridSize) {}
+    qreal gridSize() const { return _gridSize; }
 
 protected:
     void drawBackground(QPainter *painter, const QRectF &rect);
