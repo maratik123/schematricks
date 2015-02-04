@@ -23,11 +23,13 @@ SOURCES  += main.cpp\
     mainwidget.cpp \
     utils.cpp \
     abstractschemaitem.cpp \
-    gridscene.cpp
+    gridscene.cpp \
+    schemaitemtyperegistry.cpp
 
 HEADERS  += mainwidget.h \
     utils.h \
     abstractschemaitem.h \
-    gridscene.h
+    gridscene.h \
+    schemaitemtyperegistry.h
 
 FORMS    += mainwidget.ui
