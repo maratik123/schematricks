@@ -1,6 +1,7 @@
 #include "gridscene.h"
 #include <QPainter>
 #include <cmath>
+#include <QVarLengthArray>
 
 namespace {
     thread_local QVarLengthArray<QLineF> lines;
