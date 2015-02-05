@@ -4,7 +4,6 @@
 #include <QKeyEvent>
 #include "gridscene.h"
 #include <QGraphicsSimpleTextItem>
-#include <QDebug>
 
 namespace {
     static const int gridSize = 20;
@@ -45,35 +44,25 @@ MainWidget::~MainWidget()
     delete ui;
 }
 
-QDebug operator<<(QDebug debug, MainWidget::DrawType drawType) {
-    const char* strDrawType;
+QString MainWidget::drawType2String(DrawType drawType) {
     switch(drawType) {
-    case MainWidget::DrawType::AddVia:
-        strDrawType = "AddVia";
-        break;
-    case MainWidget::DrawType::DeleteMetal:
-        strDrawType = "DeleteMetal";
-        break;
-    case MainWidget::DrawType::DeleteSilicon:
-        strDrawType = "DeleteSilicon";
-        break;
-    case MainWidget::DrawType::Metal:
-        strDrawType = "Metal";
-        break;
-    case MainWidget::DrawType::Select:
-        strDrawType = "Select";
-        break;
-    case MainWidget::DrawType::SiliconN:
-        strDrawType = "SiliconN";
-        break;
-    case MainWidget::DrawType::SiliconP:
-        strDrawType = "SiliconP";
-        break;
+    case DrawType::AddVia:
+        return tr("AddVia");
+    case DrawType::DeleteMetal:
+        return tr("DeleteMetal");
+    case DrawType::DeleteSilicon:
+        return tr("DeleteSilicon");
+    case DrawType::Metal:
+        return tr("Metal");
+    case DrawType::Select:
+        return tr("Select");
+    case DrawType::SiliconN:
+        return tr("SiliconN");
+    case DrawType::SiliconP:
+        return tr("SiliconP");
     default:
-        strDrawType = "Unknown draw type";
-        break;
+        return tr("Unknown draw type");
     }
-    return debug << QLatin1String(strDrawType);
 }
 
 void MainWidget::setDrawType(MainWidget::DrawType drawType)
@@ -82,9 +71,5 @@ void MainWidget::setDrawType(MainWidget::DrawType drawType)
         return;
     _drawType = drawType;
     emit drawTypeChanged(drawType);
-    QString drawTypeStr;
-    {
-        QDebug(&drawTypeStr) << drawType;
-    }
-    drawTypeItem->setText(drawTypeStr);
+    drawTypeItem->setText(drawType2String(drawType));
 }
