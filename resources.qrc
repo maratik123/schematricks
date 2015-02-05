@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
         <file>schematrick_ru.qm</file>
-        <file>schematrick_en.qm</file>
     </qresource>
 </RCC>

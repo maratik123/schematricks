@@ -33,10 +33,8 @@ HEADERS      += mainwidget.h \
 
 FORMS        += mainwidget.ui
 
-TRANSLATIONS += schematrick_ru.ts \
-    schematrick_en.ts
+TRANSLATIONS += schematrick_ru.ts
 
 RESOURCES    += resources.qrc
 
-DISTFILES    += schematrick_en.ts \
-    schematrick_ru.ts
+DISTFILES    += schematrick_ru.ts
