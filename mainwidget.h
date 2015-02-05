@@ -43,7 +43,7 @@ public slots:
     void deleteMetalSelect(bool toggle) { if(toggle) setDrawType(DrawType::DeleteMetal); }
 
 private:
-    static QString drawType2String(MainWidget::DrawType drawType);
+    QString drawType2String() const;
     bool keyEvent(bool type, QEvent *event);
 
     Ui::MainWidget *ui;

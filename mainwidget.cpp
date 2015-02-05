@@ -44,8 +44,8 @@ MainWidget::~MainWidget()
     delete ui;
 }
 
-QString MainWidget::drawType2String(DrawType drawType) {
-    switch(drawType) {
+QString MainWidget::drawType2String() const {
+    switch(_drawType) {
     case DrawType::AddVia:
         return tr("AddVia");
     case DrawType::DeleteMetal:
@@ -71,5 +71,5 @@ void MainWidget::setDrawType(MainWidget::DrawType drawType)
         return;
     _drawType = drawType;
     emit drawTypeChanged(drawType);
-    drawTypeItem->setText(drawType2String(drawType));
+    drawTypeItem->setText(drawType2String());
 }
