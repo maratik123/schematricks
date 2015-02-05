@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWidget</string>
+   <string>Schematrick</string>
   </property>
   <layout class="QVBoxLayout" name="mainWidgetVerticalLayout" stretch="10,1">
    <item>
