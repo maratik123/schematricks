@@ -1,11 +1,11 @@
 #ifndef ABSTRACTSCHEMAITEM_H
 #define ABSTRACTSCHEMAITEM_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsItem>
 
 enum class SchemaItemType;
 
-class AbstractSchemaItem : public QGraphicsRectItem
+class AbstractSchemaItem : public QGraphicsItem
 {
     Q_DISABLE_COPY(AbstractSchemaItem)
 
@@ -16,8 +16,8 @@ public:
     int type() const { return static_cast<int>(schemaItemType()); }
     int i() const { return _i; }
     int j() const { return _j; }
-    void setI(int i) { _i = i; }
-    void setJ(int j) { _j = j; }
+    void setI(int i) { _i = i; setX(i * _cellSize); }
+    void setJ(int j) { _j = j; setY(j * _cellSize); }
     virtual SchemaItemType schemaItemType() const = 0;
 
 private:
