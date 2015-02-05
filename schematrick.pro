@@ -16,20 +16,24 @@ QMAKE_CXXFLAGS_RELEASE += -Ofast -fomit-frame-pointer
 
 TARGET   = schematrick
 TEMPLATE = app
-
 DEFINES  += QT_NO_CAST_FROM_ASCII QT_NO_CAST_TO_ASCII
 
-SOURCES  += main.cpp\
+SOURCES      += main.cpp \
     mainwidget.cpp \
     utils.cpp \
     abstractschemaitem.cpp \
     gridscene.cpp \
     schemaitemtyperegistry.cpp
 
-HEADERS  += mainwidget.h \
+HEADERS      += mainwidget.h \
     utils.h \
     abstractschemaitem.h \
     gridscene.h \
     schemaitemtyperegistry.h
 
-FORMS    += mainwidget.ui
+FORMS        += mainwidget.ui
+
+TRANSLATIONS += schematrick_ru.ts \
+    schematrick_en.ts
+
+RESOURCES    += resources.qrc
