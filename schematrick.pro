@@ -37,3 +37,6 @@ TRANSLATIONS += schematrick_ru.ts \
     schematrick_en.ts
 
 RESOURCES    += resources.qrc
+
+DISTFILES    += schematrick_en.ts \
+    schematrick_ru.ts
