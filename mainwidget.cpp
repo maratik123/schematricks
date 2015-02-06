@@ -4,6 +4,7 @@
 #include <QKeyEvent>
 #include "gridscene.h"
 #include <QGraphicsSimpleTextItem>
+#include "metalschemaitem.h"
 
 namespace {
     static const int gridSize = 20;
@@ -22,12 +23,16 @@ MainWidget::MainWidget(QWidget *parent) :
 
     ui->schemaView->setScene(scene);
 
+    scene->setGridRect(20, 20);
+
     scene->addItem(drawTypeItem);
     scene->addItem(showMetalItem);
     drawTypeItem->setPos(0, 0);
     showMetalItem->setPos(0, 20);
     setDrawType(DrawType::SiliconN);
     setShowMetal(true);
+    scene->addItem(new MetalSchemaItem(0, 1, gridSize));
+    scene->addItem(new MetalSchemaItem(0, 0, gridSize));
 }
 
 void MainWidget::setShowMetal(bool showMetal)
