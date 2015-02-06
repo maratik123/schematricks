@@ -24,14 +24,16 @@ SOURCES      += main.cpp \
     abstractschemaitem.cpp \
     gridscene.cpp \
     schemaitemtyperegistry.cpp \
-    metalschemaitem.cpp
+    metalschemaitem.cpp \
+    layeredschemaitem.cpp
 
 HEADERS      += mainwidget.h \
     utils.h \
     abstractschemaitem.h \
     gridscene.h \
     schemaitemtyperegistry.h \
-    metalschemaitem.h
+    metalschemaitem.h \
+    layeredschemaitem.h
 
 FORMS        += mainwidget.ui
 
