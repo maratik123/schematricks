@@ -10,6 +10,7 @@ class GridScene : public QGraphicsScene
 public:
     explicit GridScene(qreal gridSize, QObject *parent = nullptr) : QGraphicsScene(parent), _gridSize(gridSize) {}
     qreal gridSize() const { return _gridSize; }
+    void setGridRect(int i, int j);
 
 protected:
     void drawBackground(QPainter *painter, const QRectF &rect);

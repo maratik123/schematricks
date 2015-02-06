@@ -3,17 +3,23 @@
 #include <cmath>
 #include <QVarLengthArray>
 
+void GridScene::setGridRect(int i, int j)
+{
+    setSceneRect(QRectF(0, 0, _gridSize * i, _gridSize * j));
+}
+
 void GridScene::drawBackground(QPainter *painter, const QRectF &rect)
 {
-    auto left =  rect.left() - std::remainder(rect.left(), _gridSize);
-    auto top =  rect.top() - std::remainder(rect.top(), _gridSize);
+    QRectF interRect = rect.intersected(sceneRect());
+    auto left =  interRect.left() - std::remainder(interRect.left(), _gridSize);
+    auto top =  interRect.top() - std::remainder(interRect.top(), _gridSize);
 
     QVarLengthArray<QLineF> lines;
 
-    for(auto x = left; x < rect.right(); x += _gridSize)
-        lines.append(QLineF(x, rect.top(), x, rect.bottom()));
-    for(auto y = top; y < rect.bottom(); y += _gridSize)
-        lines.append(QLineF(rect.left(), y, rect.right(), y));
+    for(auto x = left; x < interRect.right() || qFuzzyCompare(x, interRect.right()); x += _gridSize)
+        lines.append(QLineF(x, interRect.top(), x, interRect.bottom()));
+    for(auto y = top; y < interRect.bottom() || qFuzzyCompare(y, interRect.bottom()); y += _gridSize)
+        lines.append(QLineF(interRect.left(), y, interRect.right(), y));
 
     painter->drawLines(lines.constData(), lines.size());
 }
