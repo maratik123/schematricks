@@ -35,7 +35,7 @@ void AbstractSchemaItem::setGridPos(const QPoint &gridPos)
 }
 
 template<class Checker, class Updater>
-void AbstractSchemaItem::setGridPos(Checker checker, Updater updater)
+void AbstractSchemaItem::setGridPos(const Checker &checker, Updater &updater)
 {
     if(checker())
         return;

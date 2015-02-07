@@ -32,7 +32,7 @@ public:
 private:
     void updateBoundingRect();
     template<class Checker, class Updater>
-    void setGridPos(Checker checker, Updater updater);
+    void setGridPos(const Checker &checker, Updater &updater);
 
     const qreal _cellSize;
     QPoint _gridPos;

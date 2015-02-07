@@ -25,7 +25,9 @@ SOURCES      += main.cpp \
     gridscene.cpp \
     schemaitemtyperegistry.cpp \
     metalschemaitem.cpp \
-    layeredschemaitem.cpp
+    layeredschemaitem.cpp \
+    siliconschemaitem.cpp \
+    layeredcolorhelper.cpp
 
 HEADERS      += mainwidget.h \
     utils.h \
@@ -33,7 +35,9 @@ HEADERS      += mainwidget.h \
     gridscene.h \
     schemaitemtyperegistry.h \
     metalschemaitem.h \
-    layeredschemaitem.h
+    layeredschemaitem.h \
+    siliconschemaitem.h \
+    layeredcolorhelper.h
 
 FORMS        += mainwidget.ui
 

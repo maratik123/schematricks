@@ -1,15 +1,17 @@
 #include "layeredschemaitem.h"
 #include <QPainter>
 
-LayeredSchemaItem::LayeredSchemaItem(const QBrush &innerBrush, int i, int j, qreal cellSize, QGraphicsItem *parent)
+LayeredSchemaItem::LayeredSchemaItem(const QPen &outline, const QBrush &innerBrush, int i, int j, qreal cellSize, QGraphicsItem *parent)
     : AbstractSchemaItem(i, j, cellSize, parent)
 {
+    setOutline(outline);
     setInnerBrush(innerBrush);
 }
 
-LayeredSchemaItem::LayeredSchemaItem(const QBrush &innerBrush, const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+LayeredSchemaItem::LayeredSchemaItem(const QPen &outline, const QBrush &innerBrush, const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
     : AbstractSchemaItem(gridPos, cellSize, parent)
 {
+    setOutline(outline);
     setInnerBrush(innerBrush);
 }
 
@@ -27,7 +29,7 @@ LayeredSchemaItem::LayeredSchemaItem(const QPoint &gridPos, qreal cellSize, QGra
 
 void LayeredSchemaItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    painter->setPen(Qt::black);
+    painter->setPen(_outline);
     painter->setBrush(_innerBrush);
     qreal innerMargin = gridSize() * 0.1;
     const QRectF &rect = boundingRect().adjusted(innerMargin, innerMargin, - innerMargin, - innerMargin);
@@ -36,8 +38,12 @@ void LayeredSchemaItem::paint(QPainter *painter, const QStyleOptionGraphicsItem 
 
 void LayeredSchemaItem::setInnerBrush(const QBrush &innerBrush)
 {
-    if(_innerBrush == innerBrush)
-        return;
     _innerBrush = innerBrush;
+    update();
+}
+
+void LayeredSchemaItem::setOutline(const QPen &outline)
+{
+    _outline = outline;
     update();
 }
