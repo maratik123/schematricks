@@ -5,6 +5,8 @@
 #include "gridscene.h"
 #include <QGraphicsSimpleTextItem>
 #include "metalschemaitem.h"
+#include "siliconnschemaitem.h"
+#include "siliconpschemaitem.h"
 
 namespace {
     static const int gridSize = 20;
@@ -33,6 +35,13 @@ MainWidget::MainWidget(QWidget *parent) :
     setShowMetal(true);
     scene->addItem(new MetalSchemaItem(0, 1, gridSize));
     scene->addItem(new MetalSchemaItem(0, 0, gridSize));
+    scene->addItem(new MetalSchemaItem(5, 5, gridSize));
+    scene->addItem(new MetalSchemaItem(5, 6, gridSize));
+    scene->addItem(new MetalSchemaItem(5, 7, gridSize));
+    scene->addItem(new SiliconNSchemaItem(5, 6, gridSize));
+    scene->addItem(new SiliconPSchemaItem(5, 7, gridSize));
+    scene->addItem(new SiliconNSchemaItem(6, 6, gridSize));
+    scene->addItem(new SiliconPSchemaItem(6, 7, gridSize));
 }
 
 void MainWidget::setShowMetal(bool showMetal)
