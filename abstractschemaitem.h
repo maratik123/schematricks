@@ -30,7 +30,6 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0) = 0;
 
 private:
-    void updateBoundingRect();
     template<class Checker, class Updater>
     void setGridPos(const Checker &checker, Updater &updater);
 
