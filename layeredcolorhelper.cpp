@@ -1,9 +1,15 @@
 #include "layeredcolorhelper.h"
 
-LayeredColorHelper::LayeredColorHelper(QColor innerColor, QColor outlineColor)
+void LayeredColorHelper::setOutline(const QColor &outlineColor)
 {
-    innerColor.setAlphaF(0.7);
-    outlineColor.setAlphaF(0.7);
-    _brush = innerColor;
-    _outline = outlineColor;
+    QColor _outlineColor = outlineColor;
+    _outlineColor.setAlphaF(0.7);
+    _outline = _outlineColor;
+}
+
+void LayeredColorHelper::setBrush(const QColor &innerColor)
+{
+    QColor _innerColor = innerColor;
+    _innerColor.setAlphaF(0.7);
+    _brush = _innerColor;
 }
