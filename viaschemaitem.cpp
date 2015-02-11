@@ -4,7 +4,7 @@
 #include "layeredcolorhelper.h"
 
 namespace {
-    const static LayeredColorHelper viaColor(Qt::black, Qt::black);
+    const static LayeredColorHelper viaDef(Qt::NoBrush, Qt::black);
 }
 
 ViaSchemaItem::ViaSchemaItem(int i, int j, qreal cellSize, QGraphicsItem *parent)
@@ -21,8 +21,8 @@ ViaSchemaItem::ViaSchemaItem(const QPoint &gridPos, qreal cellSize, QGraphicsIte
 
 void ViaSchemaItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    painter->setPen(viaColor.outline());
-    painter->setBrush(Qt::NoBrush);
+    painter->setPen(viaDef.outline());
+    painter->setBrush(viaDef.brush());
     qreal innerMargin = gridSize() * 0.4;
     const QRectF &rect = boundingRect().adjusted(innerMargin, innerMargin, - innerMargin, - innerMargin);
     painter->drawEllipse(rect);
