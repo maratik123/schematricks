@@ -7,6 +7,7 @@
 #include "metalschemaitem.h"
 #include "siliconnschemaitem.h"
 #include "siliconpschemaitem.h"
+#include "viaschemaitem.h"
 
 namespace {
     static const int gridSize = 20;
@@ -42,6 +43,18 @@ MainWidget::MainWidget(QWidget *parent) :
     scene->addItem(new SiliconPSchemaItem(5, 7, gridSize));
     scene->addItem(new SiliconNSchemaItem(6, 6, gridSize));
     scene->addItem(new SiliconPSchemaItem(6, 7, gridSize));
+    scene->addItem(new MetalSchemaItem(7, 5, gridSize));
+    scene->addItem(new MetalSchemaItem(7, 6, gridSize));
+    scene->addItem(new MetalSchemaItem(7, 7, gridSize));
+    scene->addItem(new SiliconNSchemaItem(7, 6, gridSize));
+    scene->addItem(new SiliconPSchemaItem(7, 7, gridSize));
+    scene->addItem(new SiliconNSchemaItem(8, 6, gridSize));
+    scene->addItem(new SiliconPSchemaItem(8, 7, gridSize));
+    scene->addItem(new ViaSchemaItem(7, 5, gridSize));
+    scene->addItem(new ViaSchemaItem(7, 6, gridSize));
+    scene->addItem(new ViaSchemaItem(7, 7, gridSize));
+    scene->addItem(new ViaSchemaItem(8, 6, gridSize));
+    scene->addItem(new ViaSchemaItem(8, 7, gridSize));
 }
 
 void MainWidget::setShowMetal(bool showMetal)

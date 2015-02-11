@@ -29,7 +29,8 @@ SOURCES      += main.cpp \
     siliconschemaitem.cpp \
     layeredcolorhelper.cpp \
     siliconnschemaitem.cpp \
-    siliconpschemaitem.cpp
+    siliconpschemaitem.cpp \
+    viaschemaitem.cpp
 
 HEADERS      += mainwidget.h \
     utils.h \
@@ -41,7 +42,8 @@ HEADERS      += mainwidget.h \
     siliconschemaitem.h \
     layeredcolorhelper.h \
     siliconnschemaitem.h \
-    siliconpschemaitem.h
+    siliconpschemaitem.h \
+    viaschemaitem.h
 
 FORMS        += mainwidget.ui
 
