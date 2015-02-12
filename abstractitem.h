@@ -39,6 +39,16 @@ private:
     QPoint _gridPos;
 };
 
+template<class Checker, class Updater>
+void AbstractItem::setGridPos(const Checker &checker, Updater &updater)
+{
+    if(checker())
+        return;
+    prepareGeometryChange();
+    updater();
+    update();
+}
+
 }
 
 #endif // ABSTRACTITEM_H

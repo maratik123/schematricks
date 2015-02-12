@@ -36,14 +36,4 @@ void AbstractItem::setGridPos(const QPoint &gridPos)
     setGridPos(checker, updater);
 }
 
-template<class Checker, class Updater>
-void AbstractItem::setGridPos(const Checker &checker, Updater &updater)
-{
-    if(checker())
-        return;
-    prepareGeometryChange();
-    updater();
-    update();
-}
-
 }

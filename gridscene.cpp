@@ -72,10 +72,3 @@ void GridScene::drawBackground(QPainter *painter, const QRectF &rect)
 
     painter->drawLines(lines.constData(), lines.size());
 }
-
-template<class Item>
-Item *GridScene::addSchemaItem(Item *item)
-{
-    addItem(item);
-    return item;
-}
