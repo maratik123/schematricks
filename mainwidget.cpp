@@ -35,31 +35,27 @@ MainWidget::MainWidget(QWidget *parent) :
     setDrawType(DrawType::SiliconN);
     setShowMetal(true);
 
-    using MetalItem = SchemaItem::MetalItem;
-    using SiliconNItem = SchemaItem::SiliconNItem;
-    using SiliconPItem = SchemaItem::SiliconPItem;
-    using ViaItem = SchemaItem::ViaItem;
-    scene->addItem(new MetalItem(0, 1, gridSize));
-    scene->addItem(new MetalItem(0, 0, gridSize));
-    scene->addItem(new MetalItem(5, 5, gridSize));
-    scene->addItem(new MetalItem(5, 6, gridSize));
-    scene->addItem(new MetalItem(5, 7, gridSize));
-    scene->addItem(new SiliconNItem(5, 6, gridSize));
-    scene->addItem(new SiliconPItem(5, 7, gridSize));
-    scene->addItem(new SiliconNItem(6, 6, gridSize));
-    scene->addItem(new SiliconPItem(6, 7, gridSize));
-    scene->addItem(new MetalItem(7, 5, gridSize));
-    scene->addItem(new MetalItem(7, 6, gridSize));
-    scene->addItem(new MetalItem(7, 7, gridSize));
-    scene->addItem(new SiliconNItem(7, 6, gridSize));
-    scene->addItem(new SiliconPItem(7, 7, gridSize));
-    scene->addItem(new SiliconNItem(8, 6, gridSize));
-    scene->addItem(new SiliconPItem(8, 7, gridSize));
-    scene->addItem(new ViaItem(7, 5, gridSize));
-    scene->addItem(new ViaItem(7, 6, gridSize));
-    scene->addItem(new ViaItem(7, 7, gridSize));
-    scene->addItem(new ViaItem(8, 6, gridSize));
-    scene->addItem(new ViaItem(8, 7, gridSize));
+    scene->addMetalItem(0, 1);
+    scene->addMetalItem(0, 0);
+    scene->addMetalItem(5, 5);
+    scene->addMetalItem(5, 6);
+    scene->addMetalItem(5, 7);
+    scene->addSiliconNItem(5, 6);
+    scene->addSiliconPItem(5, 7);
+    scene->addSiliconNItem(6, 6);
+    scene->addSiliconPItem(6, 7);
+    scene->addMetalItem(7, 5);
+    scene->addMetalItem(7, 6);
+    scene->addMetalItem(7, 7);
+    scene->addSiliconNItem(7, 6);
+    scene->addSiliconPItem(7, 7);
+    scene->addSiliconNItem(8, 6);
+    scene->addSiliconPItem(8, 7);
+    scene->addViaItem(7, 5);
+    scene->addViaItem(7, 6);
+    scene->addViaItem(7, 7);
+    scene->addViaItem(8, 6);
+    scene->addViaItem(8, 7);
 }
 
 void MainWidget::setShowMetal(bool showMetal)
