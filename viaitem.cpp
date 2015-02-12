@@ -25,7 +25,7 @@ void ViaItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget
 {
     painter->setPen(viaDef.outline());
     painter->setBrush(viaDef.brush());
-    qreal innerMargin = gridSize() * 0.4;
+    const qreal innerMargin = gridSize() * 0.4;
     const QRectF &rect = boundingRect().adjusted(innerMargin, innerMargin, - innerMargin, - innerMargin);
     painter->drawEllipse(rect);
 }

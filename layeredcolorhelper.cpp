@@ -4,7 +4,7 @@ namespace SchemaItem {
 
 template<class ColorType>
 void LayeredColorHelper::setOutlineGeneric(const ColorType &outlineColor) {
-    QColor _outlineColor = outlineColor;
+    QColor _outlineColor(outlineColor);
     _outlineColor.setAlphaF(0.7);
     _outline = _outlineColor;
 }
@@ -21,7 +21,7 @@ void LayeredColorHelper::setOutline(Qt::GlobalColor outlineColor)
 
 void LayeredColorHelper::setBrush(const QColor &innerColor)
 {
-    QColor _innerColor = innerColor;
+    QColor _innerColor(innerColor);
     _innerColor.setAlphaF(0.7);
     _brush = _innerColor;
 }

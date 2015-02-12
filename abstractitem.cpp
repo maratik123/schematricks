@@ -17,21 +17,21 @@ AbstractItem::AbstractItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem 
 
 void AbstractItem::setI(int i)
 {
-    auto checker = [this, i] { return _gridPos.x() == i; };
+    const auto &checker = [this, i] { return _gridPos.x() == i; };
     auto updater = [this, i]() mutable { _gridPos.setX(i); };
     setGridPos(checker, updater);
 }
 
 void AbstractItem::setJ(int j)
 {
-    auto checker = [this, j] { return _gridPos.y() == j; };
+    const auto &checker = [this, j] { return _gridPos.y() == j; };
     auto updater = [this, j]() mutable { _gridPos.setY(j); };
     setGridPos(checker, updater);
 }
 
 void AbstractItem::setGridPos(const QPoint &gridPos)
 {
-    auto checker = [this, &gridPos] { return _gridPos == gridPos; };
+    const auto &checker = [this, &gridPos] { return _gridPos == gridPos; };
     auto updater = [this, &gridPos]() mutable { _gridPos = gridPos; };
     setGridPos(checker, updater);
 }

@@ -33,7 +33,7 @@ void LayeredItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
 {
     painter->setPen(_outline);
     painter->setBrush(_innerBrush);
-    qreal innerMargin = gridSize() * 0.1;
+    const qreal innerMargin = gridSize() * 0.1;
     const QRectF &rect = boundingRect().adjusted(innerMargin, innerMargin, - innerMargin, - innerMargin);
     painter->drawRect(rect);
 }

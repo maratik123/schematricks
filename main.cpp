@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    QString localeName = QLocale::system().name();
+    const QString &localeName = QLocale::system().name();
 
     QTranslator qtTranslator;
     qtTranslator.load(QLatin1String("qt_") % localeName,

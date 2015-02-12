@@ -10,9 +10,9 @@ void GridScene::setGridRect(int i, int j)
 
 void GridScene::drawBackground(QPainter *painter, const QRectF &rect)
 {
-    QRectF interRect = rect.intersected(sceneRect());
-    auto left =  interRect.left() - std::remainder(interRect.left(), _gridSize);
-    auto top =  interRect.top() - std::remainder(interRect.top(), _gridSize);
+    const QRectF &interRect = rect.intersected(sceneRect());
+    const qreal left = interRect.left() - std::remainder(interRect.left(), _gridSize);
+    const qreal top = interRect.top() - std::remainder(interRect.top(), _gridSize);
 
     QVarLengthArray<QLineF> lines;
 
