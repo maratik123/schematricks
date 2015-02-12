@@ -21,29 +21,29 @@ DEFINES  += QT_NO_CAST_FROM_ASCII QT_NO_CAST_TO_ASCII
 SOURCES      += main.cpp \
     mainwidget.cpp \
     utils.cpp \
-    abstractschemaitem.cpp \
     gridscene.cpp \
-    schemaitemtyperegistry.cpp \
-    metalschemaitem.cpp \
-    layeredschemaitem.cpp \
-    siliconschemaitem.cpp \
     layeredcolorhelper.cpp \
-    siliconnschemaitem.cpp \
-    siliconpschemaitem.cpp \
-    viaschemaitem.cpp
+    abstractitem.cpp \
+    layereditem.cpp \
+    metalitem.cpp \
+    itemtyperegistry.cpp \
+    siliconnitem.cpp \
+    siliconpitem.cpp \
+    siliconitem.cpp \
+    viaitem.cpp
 
 HEADERS      += mainwidget.h \
     utils.h \
-    abstractschemaitem.h \
     gridscene.h \
-    schemaitemtyperegistry.h \
-    metalschemaitem.h \
-    layeredschemaitem.h \
-    siliconschemaitem.h \
     layeredcolorhelper.h \
-    siliconnschemaitem.h \
-    siliconpschemaitem.h \
-    viaschemaitem.h
+    abstractitem.h \
+    layereditem.h \
+    metalitem.h \
+    itemtyperegistry.h \
+    siliconnitem.h \
+    siliconpitem.h \
+    siliconitem.h \
+    viaitem.h
 
 FORMS        += mainwidget.ui
 

@@ -4,6 +4,8 @@
 #include <QBrush>
 #include <QPen>
 
+namespace SchemaItem {
+
 class LayeredColorHelper
 {
     QBrush _brush;
@@ -25,5 +27,7 @@ private:
     template<class ColorType>
     void setOutlineGeneric(const ColorType &outlineColor);
 };
+
+}
 
 #endif // LAYEREDCOLORHELPER_H

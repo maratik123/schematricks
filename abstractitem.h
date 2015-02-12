@@ -1,20 +1,22 @@
-#ifndef ABSTRACTSCHEMAITEM_H
-#define ABSTRACTSCHEMAITEM_H
+#ifndef ABSTRACTITEM_H
+#define ABSTRACTITEM_H
 
 #include <QAbstractGraphicsShapeItem>
 
-enum class SchemaItemType;
+namespace SchemaItem {
 
-class AbstractSchemaItem : public QAbstractGraphicsShapeItem
+enum class ItemType;
+
+class AbstractItem : public QAbstractGraphicsShapeItem
 {
-    Q_DISABLE_COPY(AbstractSchemaItem)
+    Q_DISABLE_COPY(AbstractItem)
 
 public:
-    explicit AbstractSchemaItem(int i, int j, qreal cellSize, QGraphicsItem *parent = nullptr);
-    explicit AbstractSchemaItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
+    explicit AbstractItem(int i, int j, qreal cellSize, QGraphicsItem *parent = nullptr);
+    explicit AbstractItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
     qreal gridSize() const { return _cellSize; }
 
-    int type() const { return static_cast<int>(schemaItemType()); }
+    int type() const { return static_cast<int>(itemType()); }
     int i() const { return _gridPos.x(); }
     int j() const { return _gridPos.y(); }
     const QPoint &gridPos() const { return _gridPos; }
@@ -23,7 +25,7 @@ public:
     void setGridPos(const QPoint &gridPos);
     void setGridPos(int i, int j) { setGridPos(QPoint(i, j)); }
 
-    virtual SchemaItemType schemaItemType() const = 0;
+    virtual ItemType itemType() const = 0;
 
     QRectF boundingRect() const { return QRectF(QPointF(_gridPos) * _cellSize, QSizeF(_cellSize, _cellSize)); }
 
@@ -37,4 +39,6 @@ private:
     QPoint _gridPos;
 };
 
-#endif // ABSTRACTSCHEMAITEM_H
+}
+
+#endif // ABSTRACTITEM_H

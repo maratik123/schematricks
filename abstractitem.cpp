@@ -1,33 +1,35 @@
-#include "abstractschemaitem.h"
+#include "abstractitem.h"
 #include "utils.h"
 
-AbstractSchemaItem::AbstractSchemaItem(int i, int j, qreal cellSize, QGraphicsItem *parent)
+namespace SchemaItem {
+
+AbstractItem::AbstractItem(int i, int j, qreal cellSize, QGraphicsItem *parent)
     : QAbstractGraphicsShapeItem(parent), _cellSize(cellSize)
 {
     setGridPos(i, j);
 }
 
-AbstractSchemaItem::AbstractSchemaItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+AbstractItem::AbstractItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
     : QAbstractGraphicsShapeItem(parent), _cellSize(cellSize)
 {
     setGridPos(gridPos);
 }
 
-void AbstractSchemaItem::setI(int i)
+void AbstractItem::setI(int i)
 {
     auto checker = [this, i] { return _gridPos.x() == i; };
     auto updater = [this, i]() mutable { _gridPos.setX(i); };
     setGridPos(checker, updater);
 }
 
-void AbstractSchemaItem::setJ(int j)
+void AbstractItem::setJ(int j)
 {
     auto checker = [this, j] { return _gridPos.y() == j; };
     auto updater = [this, j]() mutable { _gridPos.setY(j); };
     setGridPos(checker, updater);
 }
 
-void AbstractSchemaItem::setGridPos(const QPoint &gridPos)
+void AbstractItem::setGridPos(const QPoint &gridPos)
 {
     auto checker = [this, &gridPos] { return _gridPos == gridPos; };
     auto updater = [this, &gridPos]() mutable { _gridPos = gridPos; };
@@ -35,11 +37,13 @@ void AbstractSchemaItem::setGridPos(const QPoint &gridPos)
 }
 
 template<class Checker, class Updater>
-void AbstractSchemaItem::setGridPos(const Checker &checker, Updater &updater)
+void AbstractItem::setGridPos(const Checker &checker, Updater &updater)
 {
     if(checker())
         return;
     prepareGeometryChange();
     updater();
     update();
+}
+
 }

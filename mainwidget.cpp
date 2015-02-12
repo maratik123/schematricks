@@ -4,10 +4,10 @@
 #include <QKeyEvent>
 #include "gridscene.h"
 #include <QGraphicsSimpleTextItem>
-#include "metalschemaitem.h"
-#include "siliconnschemaitem.h"
-#include "siliconpschemaitem.h"
-#include "viaschemaitem.h"
+#include "metalitem.h"
+#include "siliconnitem.h"
+#include "siliconpitem.h"
+#include "viaitem.h"
 
 namespace {
     static const int gridSize = 20;
@@ -34,27 +34,32 @@ MainWidget::MainWidget(QWidget *parent) :
     showMetalItem->setPos(0, 20);
     setDrawType(DrawType::SiliconN);
     setShowMetal(true);
-    scene->addItem(new MetalSchemaItem(0, 1, gridSize));
-    scene->addItem(new MetalSchemaItem(0, 0, gridSize));
-    scene->addItem(new MetalSchemaItem(5, 5, gridSize));
-    scene->addItem(new MetalSchemaItem(5, 6, gridSize));
-    scene->addItem(new MetalSchemaItem(5, 7, gridSize));
-    scene->addItem(new SiliconNSchemaItem(5, 6, gridSize));
-    scene->addItem(new SiliconPSchemaItem(5, 7, gridSize));
-    scene->addItem(new SiliconNSchemaItem(6, 6, gridSize));
-    scene->addItem(new SiliconPSchemaItem(6, 7, gridSize));
-    scene->addItem(new MetalSchemaItem(7, 5, gridSize));
-    scene->addItem(new MetalSchemaItem(7, 6, gridSize));
-    scene->addItem(new MetalSchemaItem(7, 7, gridSize));
-    scene->addItem(new SiliconNSchemaItem(7, 6, gridSize));
-    scene->addItem(new SiliconPSchemaItem(7, 7, gridSize));
-    scene->addItem(new SiliconNSchemaItem(8, 6, gridSize));
-    scene->addItem(new SiliconPSchemaItem(8, 7, gridSize));
-    scene->addItem(new ViaSchemaItem(7, 5, gridSize));
-    scene->addItem(new ViaSchemaItem(7, 6, gridSize));
-    scene->addItem(new ViaSchemaItem(7, 7, gridSize));
-    scene->addItem(new ViaSchemaItem(8, 6, gridSize));
-    scene->addItem(new ViaSchemaItem(8, 7, gridSize));
+
+    using MetalItem = SchemaItem::MetalItem;
+    using SiliconNItem = SchemaItem::SiliconNItem;
+    using SiliconPItem = SchemaItem::SiliconPItem;
+    using ViaItem = SchemaItem::ViaItem;
+    scene->addItem(new MetalItem(0, 1, gridSize));
+    scene->addItem(new MetalItem(0, 0, gridSize));
+    scene->addItem(new MetalItem(5, 5, gridSize));
+    scene->addItem(new MetalItem(5, 6, gridSize));
+    scene->addItem(new MetalItem(5, 7, gridSize));
+    scene->addItem(new SiliconNItem(5, 6, gridSize));
+    scene->addItem(new SiliconPItem(5, 7, gridSize));
+    scene->addItem(new SiliconNItem(6, 6, gridSize));
+    scene->addItem(new SiliconPItem(6, 7, gridSize));
+    scene->addItem(new MetalItem(7, 5, gridSize));
+    scene->addItem(new MetalItem(7, 6, gridSize));
+    scene->addItem(new MetalItem(7, 7, gridSize));
+    scene->addItem(new SiliconNItem(7, 6, gridSize));
+    scene->addItem(new SiliconPItem(7, 7, gridSize));
+    scene->addItem(new SiliconNItem(8, 6, gridSize));
+    scene->addItem(new SiliconPItem(8, 7, gridSize));
+    scene->addItem(new ViaItem(7, 5, gridSize));
+    scene->addItem(new ViaItem(7, 6, gridSize));
+    scene->addItem(new ViaItem(7, 7, gridSize));
+    scene->addItem(new ViaItem(8, 6, gridSize));
+    scene->addItem(new ViaItem(8, 7, gridSize));
 }
 
 void MainWidget::setShowMetal(bool showMetal)
