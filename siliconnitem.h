@@ -17,4 +17,4 @@ public:
 
 }
 
-#endif // SILICONNSCHEMAITEM_H
+#endif // SILICONNITEM_H

@@ -4,10 +4,6 @@
 #include <QKeyEvent>
 #include "gridscene.h"
 #include <QGraphicsSimpleTextItem>
-#include "metalitem.h"
-#include "siliconnitem.h"
-#include "siliconpitem.h"
-#include "viaitem.h"
 
 namespace {
     static const int gridSize = 20;
