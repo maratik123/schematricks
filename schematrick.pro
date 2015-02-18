@@ -30,7 +30,8 @@ SOURCES      += main.cpp \
     siliconnitem.cpp \
     siliconpitem.cpp \
     siliconitem.cpp \
-    viaitem.cpp
+    viaitem.cpp \
+    globalconsts.cpp
 
 HEADERS      += mainwidget.h \
     utils.h \
@@ -43,7 +44,8 @@ HEADERS      += mainwidget.h \
     siliconnitem.h \
     siliconpitem.h \
     siliconitem.h \
-    viaitem.h
+    viaitem.h \
+    globalconsts.h
 
 FORMS        += mainwidget.ui
 
