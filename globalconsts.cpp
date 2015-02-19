@@ -6,19 +6,21 @@
 
 namespace {
 
+namespace SI = SchemaItem;
+
 class InitGlobalConsts {
 public:
     InitGlobalConsts() {
-        SchemaItem::metalDef = new SchemaItem::LayeredColorHelper(Qt::gray, Qt::black);
-        SchemaItem::siliconNDef = new SchemaItem::LayeredColorHelper(Qt::red, Qt::black);
-        SchemaItem::siliconPDef = new SchemaItem::LayeredColorHelper(Qt::yellow, Qt::black);
-        SchemaItem::viaDef = new SchemaItem::LayeredColorHelper(Qt::NoBrush, Qt::black);
+        SI::metalDef = new SI::LayeredColorHelper(Qt::gray, Qt::black);
+        SI::siliconNDef = new SI::LayeredColorHelper(Qt::red, Qt::black);
+        SI::siliconPDef = new SI::LayeredColorHelper(Qt::yellow, Qt::black);
+        SI::viaDef = new SI::LayeredColorHelper(Qt::NoBrush, Qt::black);
     }
     ~InitGlobalConsts() {
-        delete SchemaItem::viaDef;
-        delete SchemaItem::siliconPDef;
-        delete SchemaItem::siliconNDef;
-        delete SchemaItem::metalDef;
+        delete SI::viaDef;
+        delete SI::siliconPDef;
+        delete SI::siliconNDef;
+        delete SI::metalDef;
     }
 };
 

@@ -32,8 +32,6 @@ protected:
 
 private:
     const qreal _gridSize;
-    template<class Item>
-    Item *addSchemaItem(Item *item) { addItem(item); return item; }
 };
 
 #endif // GRIDSCENE_H

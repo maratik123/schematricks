@@ -7,54 +7,60 @@
 #include "siliconpitem.h"
 #include "viaitem.h"
 
-using SchemaItem::MetalItem;
-using SchemaItem::SiliconNItem;
-using SchemaItem::SiliconPItem;
-using SchemaItem::ViaItem;
+namespace SI = SchemaItem;
+
+namespace {
+template<class Item>
+static Item *addSchemaItem(GridScene *scene, Item *item)
+{
+    scene->addItem(item);
+    return item;
+}
+}
 
 void GridScene::setGridRect(int i, int j)
 {
     setSceneRect(QRectF(0, 0, _gridSize * i, _gridSize * j));
 }
 
-MetalItem *GridScene::addMetalItem(int i, int j)
+SI::MetalItem *GridScene::addMetalItem(int i, int j)
 {
-    return addSchemaItem(new MetalItem(i, j, _gridSize));
+    return addSchemaItem(this, new SI::MetalItem(i, j, _gridSize));
 }
 
-MetalItem *GridScene::addMetalItem(const QPoint &gridPos)
+SI::MetalItem *GridScene::addMetalItem(const QPoint &gridPos)
 {
-    return addSchemaItem(new MetalItem(gridPos, _gridSize));
+    return addSchemaItem(this, new SI::MetalItem(gridPos, _gridSize));
 }
 
-SiliconNItem *GridScene::addSiliconNItem(int i, int j)
+SI::SiliconNItem *GridScene::addSiliconNItem(int i, int j)
 {
-    return addSchemaItem(new SiliconNItem(i, j, _gridSize));
+    return addSchemaItem(this, new SI::SiliconNItem(i, j, _gridSize));
 }
 
-SiliconNItem *GridScene::addSiliconNItem(const QPoint &gridPos)
+SI::SiliconNItem *GridScene::addSiliconNItem(const QPoint &gridPos)
 {
-    return addSchemaItem(new SiliconNItem(gridPos, _gridSize));
+    return addSchemaItem(this, new SI::SiliconNItem(gridPos, _gridSize));
 }
 
-SiliconPItem *GridScene::addSiliconPItem(int i, int j)
+SI::SiliconPItem *GridScene::addSiliconPItem(int i, int j)
 {
-    return addSchemaItem(new SiliconPItem(i, j, _gridSize));
+    return addSchemaItem(this, new SI::SiliconPItem(i, j, _gridSize));
 }
 
-SiliconPItem *GridScene::addSiliconPItem(const QPoint &gridPos)
+SI::SiliconPItem *GridScene::addSiliconPItem(const QPoint &gridPos)
 {
-    return addSchemaItem(new SiliconPItem(gridPos, _gridSize));
+    return addSchemaItem(this, new SI::SiliconPItem(gridPos, _gridSize));
 }
 
-ViaItem *GridScene::addViaItem(int i, int j)
+SI::ViaItem *GridScene::addViaItem(int i, int j)
 {
-    return addSchemaItem(new ViaItem(i, j, _gridSize));
+    return addSchemaItem(this, new SI::ViaItem(i, j, _gridSize));
 }
 
-ViaItem *GridScene::addViaItem(const QPoint &gridPos)
+SI::ViaItem *GridScene::addViaItem(const QPoint &gridPos)
 {
-    return addSchemaItem(new ViaItem(gridPos, _gridSize));
+    return addSchemaItem(this, new SI::ViaItem(gridPos, _gridSize));
 }
 
 void GridScene::drawBackground(QPainter *painter, const QRectF &rect)
