@@ -20,7 +20,7 @@ ViaItem::ViaItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
 
 void ViaItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    painter->setPen(viaDef->outline());
+    painter->setPen(viaDef->pen());
     painter->setBrush(viaDef->brush());
     const qreal innerMargin = gridSize() * 0.4;
     const QRectF &rect = boundingRect().adjusted(innerMargin, innerMargin, - innerMargin, - innerMargin);

@@ -3,20 +3,20 @@
 namespace SchemaItem {
 
 template<class ColorType>
-void LayeredColorHelper::setOutlineGeneric(const ColorType &outlineColor) {
+void LayeredColorHelper::setPenGeneric(const ColorType &outlineColor) {
     QColor _outlineColor(outlineColor);
     _outlineColor.setAlphaF(0.7);
-    _outline = _outlineColor;
+    _pen = _outlineColor;
 }
 
-void LayeredColorHelper::setOutline(const QColor &outlineColor)
+void LayeredColorHelper::setPen(const QColor &outlineColor)
 {
-    setOutlineGeneric(outlineColor);
+    setPenGeneric(outlineColor);
 }
 
-void LayeredColorHelper::setOutline(Qt::GlobalColor outlineColor)
+void LayeredColorHelper::setPen(Qt::GlobalColor outlineColor)
 {
-    setOutlineGeneric(outlineColor);
+    setPenGeneric(outlineColor);
 }
 
 void LayeredColorHelper::setBrush(const QColor &innerColor)
