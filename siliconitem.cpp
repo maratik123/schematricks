@@ -3,15 +3,15 @@
 
 namespace SchemaItem {
 
-SiliconItem::SiliconItem(const QPen &outline, const QBrush &innerBrush, int i, int j, qreal cellSize, QGraphicsItem *parent)
-    : LayeredItem(outline, innerBrush, i, j, cellSize, parent)
+SiliconItem::SiliconItem(const QPen &pen, const QBrush &brush, int i, int j, qreal cellSize, QGraphicsItem *parent)
+    : LayeredItem(pen, brush, i, j, cellSize, parent)
 {
     setZValue(ItemLevel::Silicon);
 }
 
 
-SiliconItem::SiliconItem(const QPen &outline, const QBrush &innerBrush, const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
-    : LayeredItem(outline, innerBrush, gridPos, cellSize, parent)
+SiliconItem::SiliconItem(const QPen &pen, const QBrush &brush, const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+    : LayeredItem(pen, brush, gridPos, cellSize, parent)
 {
     setZValue(ItemLevel::Silicon);
 }
