@@ -13,7 +13,9 @@ public:
     explicit ViaItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
 
     ItemType itemType() const { return ItemType::Via; }
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
+
+protected:
+    void schemaPaint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
 };
 
 }

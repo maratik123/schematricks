@@ -1,5 +1,6 @@
 #include "abstractitem.h"
 #include "utils.h"
+#include <QPainter>
 
 namespace SchemaItem {
 
@@ -17,23 +18,36 @@ AbstractItem::AbstractItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem 
 
 void AbstractItem::setI(int i)
 {
-    const auto &checker = [this, i] { return _gridPos.x() == i; };
-    auto updater = [this, i]() mutable { _gridPos.setX(i); };
-    setGridPos(checker, updater);
+    if(_gridPos.x() == i)
+        return;
+    prepareGeometryChange();
+    _gridPos.setX(i);
+    update();
 }
 
 void AbstractItem::setJ(int j)
 {
-    const auto &checker = [this, j] { return _gridPos.y() == j; };
-    auto updater = [this, j]() mutable { _gridPos.setY(j); };
-    setGridPos(checker, updater);
+    if(_gridPos.y() == j)
+        return;
+    prepareGeometryChange();
+    _gridPos.setY(j);
+    update();
 }
 
 void AbstractItem::setGridPos(const QPoint &gridPos)
 {
-    const auto &checker = [this, &gridPos] { return _gridPos == gridPos; };
-    auto updater = [this, &gridPos]() mutable { _gridPos = gridPos; };
-    setGridPos(checker, updater);
+    if(_gridPos == gridPos)
+        return;
+    prepareGeometryChange();
+    _gridPos = gridPos;
+    update();
+}
+
+void AbstractItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    painter->setPen(pen());
+    painter->setBrush(brush());
+    schemaPaint(painter, option, widget);
 }
 
 }

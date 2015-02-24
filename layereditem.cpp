@@ -17,22 +17,8 @@ LayeredItem::LayeredItem(const QPen &pen, const QBrush &brush, const QPoint &gri
     setBrush(brush);
 }
 
-LayeredItem::LayeredItem(int i, int j, qreal cellSize, QGraphicsItem *parent)
-    : AbstractItem(i, j, cellSize, parent)
+void LayeredItem::schemaPaint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-
-}
-
-LayeredItem::LayeredItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
-    : AbstractItem(gridPos, cellSize, parent)
-{
-
-}
-
-void LayeredItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
-{
-    painter->setPen(pen());
-    painter->setBrush(brush());
     const qreal innerMargin = gridSize() * 0.1;
     const QRectF &rect = boundingRect().adjusted(innerMargin, innerMargin, - innerMargin, - innerMargin);
     painter->drawRect(rect);

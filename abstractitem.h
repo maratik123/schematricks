@@ -29,25 +29,15 @@ public:
 
     QRectF boundingRect() const { return QRectF(QPointF(_gridPos) * _cellSize, QSizeF(_cellSize, _cellSize)); }
 
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0) = 0;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
+
+protected:
+    virtual void schemaPaint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0) = 0;
 
 private:
-    template<class Checker, class Updater>
-    void setGridPos(const Checker &checker, Updater &updater);
-
     const qreal _cellSize;
     QPoint _gridPos;
 };
-
-template<class Checker, class Updater>
-void AbstractItem::setGridPos(const Checker &checker, Updater &updater)
-{
-    if(checker())
-        return;
-    prepareGeometryChange();
-    updater();
-    update();
-}
 
 }
 

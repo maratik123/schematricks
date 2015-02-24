@@ -10,12 +10,14 @@
 namespace SI = SchemaItem;
 
 namespace {
+
 template<class Item>
 static Item *addSchemaItem(GridScene *scene, Item *item)
 {
     scene->addItem(item);
     return item;
 }
+
 }
 
 void GridScene::setGridRect(int i, int j)
