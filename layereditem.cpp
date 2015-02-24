@@ -4,14 +4,14 @@
 namespace SchemaItem {
 
 LayeredItem::LayeredItem(const QPen &pen, const QBrush &brush, int i, int j, qreal cellSize, QGraphicsItem *parent)
-    : AbstractItem(i, j, cellSize, parent)
+    : AbstractItem(i, j, cellSize, parent), _bridgeDirections(NoBridge)
 {
     setPen(pen);
     setBrush(brush);
 }
 
 LayeredItem::LayeredItem(const QPen &pen, const QBrush &brush, const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
-    : AbstractItem(gridPos, cellSize, parent)
+    : AbstractItem(gridPos, cellSize, parent), _bridgeDirections(NoBridge)
 {
     setPen(pen);
     setBrush(brush);
