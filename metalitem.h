@@ -10,7 +10,7 @@ class MetalItem : public LayeredItem
 {
 public:
     explicit MetalItem(int i, int j, qreal cellSize, QGraphicsItem *parent = nullptr);
-    explicit MetalItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
+    explicit MetalItem(QPoint gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
 
     ItemType itemType() const { return ItemType::Metal; }
 };

@@ -30,7 +30,7 @@ SI::MetalItem *GridScene::addMetalItem(int i, int j)
     return addSchemaItem(this, new SI::MetalItem(i, j, _gridSize));
 }
 
-SI::MetalItem *GridScene::addMetalItem(const QPoint &gridPos)
+SI::MetalItem *GridScene::addMetalItem(QPoint gridPos)
 {
     return addSchemaItem(this, new SI::MetalItem(gridPos, _gridSize));
 }
@@ -40,7 +40,7 @@ SI::SiliconNItem *GridScene::addSiliconNItem(int i, int j)
     return addSchemaItem(this, new SI::SiliconNItem(i, j, _gridSize));
 }
 
-SI::SiliconNItem *GridScene::addSiliconNItem(const QPoint &gridPos)
+SI::SiliconNItem *GridScene::addSiliconNItem(QPoint gridPos)
 {
     return addSchemaItem(this, new SI::SiliconNItem(gridPos, _gridSize));
 }
@@ -50,7 +50,7 @@ SI::SiliconPItem *GridScene::addSiliconPItem(int i, int j)
     return addSchemaItem(this, new SI::SiliconPItem(i, j, _gridSize));
 }
 
-SI::SiliconPItem *GridScene::addSiliconPItem(const QPoint &gridPos)
+SI::SiliconPItem *GridScene::addSiliconPItem(QPoint gridPos)
 {
     return addSchemaItem(this, new SI::SiliconPItem(gridPos, _gridSize));
 }
@@ -60,7 +60,7 @@ SI::ViaItem *GridScene::addViaItem(int i, int j)
     return addSchemaItem(this, new SI::ViaItem(i, j, _gridSize));
 }
 
-SI::ViaItem *GridScene::addViaItem(const QPoint &gridPos)
+SI::ViaItem *GridScene::addViaItem(QPoint gridPos)
 {
     return addSchemaItem(this, new SI::ViaItem(gridPos, _gridSize));
 }

@@ -10,7 +10,7 @@ AbstractItem::AbstractItem(int i, int j, qreal cellSize, QGraphicsItem *parent)
     setGridPos(i, j);
 }
 
-AbstractItem::AbstractItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+AbstractItem::AbstractItem(QPoint gridPos, qreal cellSize, QGraphicsItem *parent)
     : QAbstractGraphicsShapeItem(parent), _cellSize(cellSize)
 {
     setGridPos(gridPos);
@@ -34,7 +34,7 @@ void AbstractItem::setJ(int j)
     update();
 }
 
-void AbstractItem::setGridPos(const QPoint &gridPos)
+void AbstractItem::setGridPos(QPoint gridPos)
 {
     if(_gridPos == gridPos)
         return;

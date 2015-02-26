@@ -13,7 +13,7 @@ class AbstractItem : public QAbstractGraphicsShapeItem
 
 public:
     explicit AbstractItem(int i, int j, qreal cellSize, QGraphicsItem *parent = nullptr);
-    explicit AbstractItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
+    explicit AbstractItem(QPoint gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
     qreal gridSize() const { return _cellSize; }
 
     int type() const { return static_cast<int>(itemType()); }
@@ -22,7 +22,7 @@ public:
     const QPoint &gridPos() const { return _gridPos; }
     void setI(int i);
     void setJ(int j);
-    void setGridPos(const QPoint &gridPos);
+    void setGridPos(QPoint gridPos);
     void setGridPos(int i, int j) { setGridPos(QPoint(i, j)); }
 
     virtual ItemType itemType() const = 0;

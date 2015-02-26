@@ -12,20 +12,20 @@ class LayeredColorHelper
     QPen _pen;
 
 public:
-    explicit LayeredColorHelper(const QColor &innerColor, const QColor &outlineColor) { setPen(outlineColor); setBrush(innerColor); }
+    explicit LayeredColorHelper(QColor innerColor, QColor outlineColor) { setPen(outlineColor); setBrush(innerColor); }
     explicit LayeredColorHelper(Qt::GlobalColor innerColor, Qt::GlobalColor outlineColor) { setPen(outlineColor); setBrush(innerColor); }
-    explicit LayeredColorHelper(const QBrush &innerBrush, const QColor &outlineColor) : _brush(innerBrush) { setPen(outlineColor); }
-    explicit LayeredColorHelper(Qt::BrushStyle brushStyle, const QColor &outlineColor) : _brush(brushStyle) { setPen(outlineColor); }
+    explicit LayeredColorHelper(QBrush innerBrush, QColor outlineColor) : _brush(innerBrush) { setPen(outlineColor); }
+    explicit LayeredColorHelper(Qt::BrushStyle brushStyle, QColor outlineColor) : _brush(brushStyle) { setPen(outlineColor); }
     explicit LayeredColorHelper(const QBrush &innerBrush, Qt::GlobalColor outlineColor) : _brush(innerBrush) { setPen(outlineColor); }
     explicit LayeredColorHelper(Qt::BrushStyle brushStyle, Qt::GlobalColor outlineColor) : _brush(brushStyle) { setPen(outlineColor); }
     const QBrush &brush() const { return _brush; }
     const QPen &pen() const { return _pen; }
-    void setPen(const QColor &outlineColor);
+    void setPen(QColor outlineColor);
     void setPen(Qt::GlobalColor outlineColor);
-    void setBrush(const QColor &innerColor);
+    void setBrush(QColor innerColor);
 private:
     template<class ColorType>
-    void setPenGeneric(const ColorType &outlineColor);
+    void setPenGeneric(ColorType outlineColor);
 };
 
 }

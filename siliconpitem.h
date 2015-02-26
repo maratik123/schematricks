@@ -10,7 +10,7 @@ class SiliconPItem : public SiliconItem
 {
 public:
     explicit SiliconPItem(int i, int j, qreal cellSize, QGraphicsItem *parent = nullptr);
-    explicit SiliconPItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
+    explicit SiliconPItem(QPoint gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
 
     ItemType itemType() const { return ItemType::SiliconP; }
 };

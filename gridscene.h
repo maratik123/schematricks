@@ -19,13 +19,13 @@ public:
     qreal gridSize() const { return _gridSize; }
     void setGridRect(int i, int j);
     SchemaItem::MetalItem *addMetalItem(int i, int j);
-    SchemaItem::MetalItem *addMetalItem(const QPoint &gridPos);
+    SchemaItem::MetalItem *addMetalItem(QPoint gridPos);
     SchemaItem::SiliconNItem *addSiliconNItem(int i, int j);
-    SchemaItem::SiliconNItem *addSiliconNItem(const QPoint &gridPos);
+    SchemaItem::SiliconNItem *addSiliconNItem(QPoint gridPos);
     SchemaItem::SiliconPItem *addSiliconPItem(int i, int j);
-    SchemaItem::SiliconPItem *addSiliconPItem(const QPoint &gridPos);
+    SchemaItem::SiliconPItem *addSiliconPItem(QPoint gridPos);
     SchemaItem::ViaItem *addViaItem(int i, int j);
-    SchemaItem::ViaItem *addViaItem(const QPoint &gridPos);
+    SchemaItem::ViaItem *addViaItem(QPoint gridPos);
 
 protected:
     void drawBackground(QPainter *painter, const QRectF &rect);

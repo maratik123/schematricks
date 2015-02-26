@@ -9,7 +9,7 @@ SiliconPItem::SiliconPItem(int i, int j, qreal cellSize, QGraphicsItem *parent)
 {
 }
 
-SiliconPItem::SiliconPItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+SiliconPItem::SiliconPItem(QPoint gridPos, qreal cellSize, QGraphicsItem *parent)
     : SiliconItem(siliconPDef->pen(), siliconPDef->brush(), gridPos, cellSize, parent)
 {
 }

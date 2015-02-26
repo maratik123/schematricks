@@ -10,7 +10,7 @@ class ViaItem : public AbstractItem
 {
 public:
     explicit ViaItem(int i, int j, qreal cellSize, QGraphicsItem *parent = nullptr);
-    explicit ViaItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
+    explicit ViaItem(QPoint gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
 
     ItemType itemType() const { return ItemType::Via; }
 

@@ -10,7 +10,7 @@ MetalItem::MetalItem(int i, int j, qreal cellSize, QGraphicsItem *parent)
     setZValue(ItemLevel::Metal);
 }
 
-MetalItem::MetalItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+MetalItem::MetalItem(QPoint gridPos, qreal cellSize, QGraphicsItem *parent)
     : LayeredItem(metalDef->pen(), metalDef->brush(), gridPos, cellSize, parent)
 {
     setZValue(ItemLevel::Metal);

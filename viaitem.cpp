@@ -14,7 +14,7 @@ ViaItem::ViaItem(int i, int j, qreal cellSize, QGraphicsItem *parent)
     setZValue(ItemLevel::Via);
 }
 
-ViaItem::ViaItem(const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+ViaItem::ViaItem(QPoint gridPos, qreal cellSize, QGraphicsItem *parent)
     : AbstractItem(gridPos, cellSize, parent)
 {
     setPen(viaDef->pen());

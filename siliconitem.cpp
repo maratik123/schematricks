@@ -10,7 +10,7 @@ SiliconItem::SiliconItem(const QPen &pen, const QBrush &brush, int i, int j, qre
 }
 
 
-SiliconItem::SiliconItem(const QPen &pen, const QBrush &brush, const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+SiliconItem::SiliconItem(const QPen &pen, const QBrush &brush, QPoint gridPos, qreal cellSize, QGraphicsItem *parent)
     : LayeredItem(pen, brush, gridPos, cellSize, parent)
 {
     setZValue(ItemLevel::Silicon);

@@ -10,7 +10,7 @@ LayeredItem::LayeredItem(const QPen &pen, const QBrush &brush, int i, int j, qre
     setBrush(brush);
 }
 
-LayeredItem::LayeredItem(const QPen &pen, const QBrush &brush, const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent)
+LayeredItem::LayeredItem(const QPen &pen, const QBrush &brush, QPoint gridPos, qreal cellSize, QGraphicsItem *parent)
     : AbstractItem(gridPos, cellSize, parent), _bridgeDirections(NoBridge)
 {
     setPen(pen);

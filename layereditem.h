@@ -21,9 +21,9 @@ public:
     Q_DECLARE_FLAGS(BridgeDirections, BridgeDirection)
 
     explicit LayeredItem(const QPen &pen, const QBrush &brush, int i, int j, qreal cellSize, QGraphicsItem *parent = nullptr);
-    explicit LayeredItem(const QPen &pen, const QBrush &brush, const QPoint &gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
+    explicit LayeredItem(const QPen &pen, const QBrush &brush, QPoint gridPos, qreal cellSize, QGraphicsItem *parent = nullptr);
     const BridgeDirections &bridgeDirections() const { return _bridgeDirections; }
-    void setBridgeDirections(const BridgeDirections& bridgeDirections) { _bridgeDirections = bridgeDirections; }
+    void setBridgeDirections(BridgeDirections bridgeDirections) { _bridgeDirections = bridgeDirections; }
 
 protected:
     void schemaPaint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
