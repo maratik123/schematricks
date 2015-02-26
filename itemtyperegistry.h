@@ -10,9 +10,9 @@ enum class ItemType {
 };
 
 namespace ItemLevel {
-    const int Metal = 15;
-    const int Silicon = 5;
-    const int Via = 10;
+    constexpr int Metal = 15;
+    constexpr int Silicon = 5;
+    constexpr int Via = 10;
 }
 
 }

@@ -6,7 +6,7 @@
 #include <QGraphicsSimpleTextItem>
 
 namespace {
-    static const int gridSize = 20;
+    static constexpr int gridSize = 20;
 }
 
 MainWidget::MainWidget(QWidget *parent) :
